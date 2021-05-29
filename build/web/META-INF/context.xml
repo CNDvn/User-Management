@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/UserManagement">
+    <Resource
+        name = "UserManagement" type = "javax.sql.DataSource" auth = "Container"
+        driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=UserManagement"
+        username = "sa" password = "12345"
+    />
+</Context>
