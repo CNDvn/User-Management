@@ -5,6 +5,7 @@
  */
 package hieubd.utils;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.naming.Context;
@@ -16,7 +17,7 @@ import javax.sql.DataSource;
  *
  * @author CND
  */
-public class DBHelper {
+public class DBHelper implements Serializable{
     public static Connection getConnection()throws NamingException, SQLException{
         Context context = new InitialContext();
         Context tomcatContext = (Context)context.lookup("java:comp/env");

@@ -2,11 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/FU/CN%20V/LAB%20WEB/UserManagement/src/java/hieubd/servlets/RegisterServlet.java</file>
-            <file>file:/D:/FU/CN%20V/LAB%20WEB/UserManagement/web/login.html</file>
-            <file>file:/D:/FU/CN%20V/LAB%20WEB/UserManagement/web/register.html</file>
-            <file>file:/D:/FU/CN%20V/LAB%20WEB/UserManagement/src/java/hieubd/filter/FilterDispatcher.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

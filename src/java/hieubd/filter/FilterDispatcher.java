@@ -6,11 +6,9 @@
 package hieubd.filter;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.nio.file.Paths;
 import java.util.Properties;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -19,17 +17,14 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
 
 /**
  *
  * @author CND
  */
 @WebFilter(filterName = "FilterDispatcher", urlPatterns = {"/*"})
-@MultipartConfig
 public class FilterDispatcher implements Filter {
 
     private static final boolean debug = true;
@@ -96,33 +91,25 @@ public class FilterDispatcher implements Filter {
             throws IOException, ServletException {
 
         HttpServletRequest req = (HttpServletRequest) request;
-        
-        Part filePart = req.getPart("photo");
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-        InputStream fileContent = filePart.getInputStream();
-        
         String uri = req.getRequestURI();
         String url = null;
-
         try {
-
-
             int lastIndex = uri.lastIndexOf("/");
             String resource = uri.substring(lastIndex + 1);
 
             ServletContext contex = req.getServletContext();
-            Properties map = (Properties) contex.getAttribute("map");
-
+            Properties map = (Properties)contex.getAttribute("map");
+            
             url = map.getProperty(resource);
-
-            if (url != null) {
+            
+            if(url != null){
                 req.getRequestDispatcher(url).forward(request, response);
-            } else {
+            }else{
                 chain.doFilter(request, response);
             }
 
-        } finally {
-
+        }finally{
+            
         }
     }
 

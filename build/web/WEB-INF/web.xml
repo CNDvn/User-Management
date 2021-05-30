@@ -3,18 +3,28 @@
          xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
     <listener>
         <listener-class>hieubd.listener.AppServletContextListener</listener-class>
     </listener>
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
+    
+    <multipart-config>
+        <max-file-size>1024*1024*50</max-file-size>
+        <max-request-size>1024*1024*100</max-request-size>
+        <file-size-threshold>1024*1024*10</file-size-threshold>
+    </multipart-config>
+    
     <resource-ref>
         <res-ref-name>UserManagement</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>
         <res-sharing-scope>Shareable</res-sharing-scope>
     </resource-ref>
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
 </web-app>
